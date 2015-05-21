@@ -9,6 +9,7 @@ Dependencies
    3. Cython
    4. Statsmodels
    5. Matplotlib
+   6. LMfit
 
 Building
 --
