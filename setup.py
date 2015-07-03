@@ -65,9 +65,7 @@ def get_extensions():
             
             extension = Extension(module, ext_files,
                     include_dirs=include_dirs,
-                    extra_compile_args=['-msse', '-msse2', '-mfpmath=sse', \
-                            '-fopenmp'],
-                    extra_link_args=['-fopenmp'])
+                    extra_compile_args=['-msse', '-msse2', '-mfpmath=sse'])
 
             extensions.append(extension)
 

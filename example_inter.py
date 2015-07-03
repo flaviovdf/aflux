@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 
 FPATH = './aflux/tests/sample_data/example.dat'
-rv = inter.fit(FPATH, 40, 50.0 / 40, .001, .001, 300, 150)
+rv = inter.fit(FPATH, 40, 50.0 / 40, .001, .001, 800, 300)
 
 out_fpath = './example_out/model.h5'
 dataio.save_model(out_fpath, rv)

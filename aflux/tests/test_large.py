@@ -31,6 +31,6 @@ def test_full_learn_null():
     Psi_sz = rv['Psi_sz']
     Psi_dz = rv['Psi_dz']
     
-    assert_almost_equal(1, Theta_zh.sum(axis=1))
-    assert_almost_equal(1, Psi_sz.sum(axis=1))
-    assert_almost_equal(1, Psi_dz.sum(axis=1))
+    assert_almost_equal(1, Theta_zh.sum(axis=0))
+    assert_almost_equal(1, Psi_sz.sum(axis=0))
+    assert_almost_equal(1, Psi_dz.sum(axis=0))

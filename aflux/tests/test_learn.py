@@ -137,9 +137,9 @@ def test_gibbs():
     assert (Psi_sz > 0).sum() > 0
     assert (Psi_dz > 0).sum() > 0
     
-    assert_almost_equal(1, Theta_zh.sum(axis=1))
-    assert_almost_equal(1, Psi_sz.sum(axis=1))
-    assert_almost_equal(1, Psi_dz.sum(axis=1))
+    assert_almost_equal(1, Theta_zh.sum(axis=0))
+    assert_almost_equal(1, Psi_sz.sum(axis=0))
+    assert_almost_equal(1, Psi_dz.sum(axis=0))
 
     assert (old_Count_zh != Count_zh).any()
     assert (old_Count_sz != Count_sz).any()

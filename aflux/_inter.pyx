@@ -155,21 +155,21 @@ def _do_step(Trace, Count_zh, Count_sz, Count_dz, count_h, count_z, \
     do_step(Trace, Count_zh, Count_sz, Count_dz, count_h, count_z, alpha_zh, \
             beta_zs, beta_zd, prob_topics_aux)
 
-cdef void row_normalize(double[:,:] X) nogil:
+cdef void col_normalize(double[:,:] X) nogil:
     
     cdef double sum_ = 0
     cdef int i, j
-    for i in xrange(X.shape[0]):
+    for j in xrange(X.shape[1]):
         sum_ = 0
 
-        for j in xrange(X.shape[1]):
+        for i in xrange(X.shape[0]):
             sum_ += X[i, j]
 
-        for j in xrange(X.shape[1]):
+        for i in xrange(X.shape[0]):
             if sum_ > 0:
                 X[i, j] = X[i, j] / sum_
             else:
-                X[i, j] = 1.0 / X.shape[1]
+                X[i, j] = 1.0 / X.shape[0]
 
 cdef void fast_gibbs(int[:,:] Trace, 
         int[:,:] Count_zh, int[:,:] Count_sz, int[:,:] Count_dz, \
@@ -191,9 +191,9 @@ cdef void fast_gibbs(int[:,:] Trace,
             useful_iters += 1
 
     average(Theta_zh, Psi_sz, Psi_dz, useful_iters)
-    row_normalize(Theta_zh)
-    row_normalize(Psi_sz)
-    row_normalize(Psi_dz)
+    col_normalize(Theta_zh)
+    col_normalize(Psi_sz)
+    col_normalize(Psi_dz)
 
 def gibbs(Trace, Count_zh, Count_sz, Count_dz, count_h, count_z, \
         alpha_zh, beta_zs, beta_zd, \
