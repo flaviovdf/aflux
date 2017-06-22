@@ -9,7 +9,7 @@ Dependencies
    3. Cython
    4. Statsmodels
    5. Matplotlib
-   6. LMfit
+   6. LMfit==0.8.2
 
 Building
 --
@@ -20,3 +20,12 @@ Building
 Examples
 --
 See the example files on the root folder for information on how to execute the inter and intra models.
+
+WARNINGS
+--
+
+This code depends in LMFit and it works best with previous versions like 0.8.2
+
+```
+pip install lmfit==0.8.2
+```
